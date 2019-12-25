@@ -1,7 +1,7 @@
 import domready from 'domready';
 import {TweenMax, Power3} from 'gsap';
 import Drawer from './components/drawer';
-import Gallery from './components/gallery';
+// import Gallery from './components/gallery';
 import Smoothscroll from './components/smoothscroll';
 import SliderUI from './components/slider';
 
@@ -21,7 +21,7 @@ class App {
   		const body = document.getElementsByTagName('body')[0];
 
 		if(body.className === 'home') {
-			Gallery().init();
+			// Gallery().init();
 		}
 
 		// Drawers
