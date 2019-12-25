@@ -88,8 +88,15 @@ a, button, [role="button"], input, label, select, textarea {
     height: calc(100vh - (96px + 100px));
 }
 
+.storybook #main {
+    height: calc(100vh - (96px + 76px));
+}
+
 .visually-hidden {
-	@include visually-hidden;
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    cursor: none;
 }
 
 

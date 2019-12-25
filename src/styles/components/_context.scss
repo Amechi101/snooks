@@ -1,4 +1,12 @@
 .context {
+	&--white {
+		background-color: $theme-color-white;
+	}
+
+	&--grey {
+		background-color: $theme-color-grey;
+	}
+
 	&--lavenderFog {
 		background-color: $theme-color-lavender-fog;
 	}

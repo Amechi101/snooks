@@ -24,8 +24,8 @@
         font-family: $font-basis-grotesque-pro-regular;
         background: transparent;
         border-radius: 0;
-        -webkit-appearance: button;
-        appearance: button;
+        -webkit-appearance: none;
+        appearance: none;
         cursor: pointer;
         width: 100%;
     }

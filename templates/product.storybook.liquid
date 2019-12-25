@@ -1,27 +1,29 @@
-<div class="storybook context--iceberg">
-
+<div class="storybook">
     <div class="storybook__main">
-        <div class="container">
-            <form class="form" method="post" action="." enctype="multipart/form-data">
-                <div class="storybook__sections">
-                    <div id="step1" class="storybook__section" data-storybook-index="0">
-                        {% section 'storybook-step-1' %}
-                    </div>
-                    <div id="step2" class="storybook__section" data-storybook-index="1"></div>
-                    <div id="step3" class="storybook__section" data-storybook-index="2"></div>
+        <form class="storybook__form" method="post" action="." enctype="multipart/form-data">
+            <div class="storybook__sections context--iceberg">
+                <div id="step1" class="storybook__section" data-storybook-index="1">
+                    {% section 'storybook-step-1' %}
                 </div>
-            </form>
-        </div>
+                <div id="step2" class="storybook__section" data-storybook-index="2">
+                    {% section 'storybook-step-2' %}
+                </div>
+                <div id="step3" class="storybook__section" data-storybook-index="3">
+                    {% section 'storybook-step-3' %}
+                </div>
+                <div id="step4" class="storybook__section" data-storybook-index="4">
+                    {% section 'storybook-step-4' %}
+                </div>
+                <div id="step5" class="storybook__section" data-storybook-index="5">
+                    {% section 'storybook-step-5' %}
+                </div>
+                <div id="step6" class="storybook__section" data-storybook-index="6">
+                    {% section 'storybook-step-6' %}
+                </div>
+                <div id="step7" class="storybook__section" data-storybook-index="7">
+                    {% section 'storybook-step-7' %}
+                </div>
+            </div>
+        </form>
     </div>
-
-    <nav class="storybook__controls">
-        <div class="storybook__nav storybook__nav--left">
-            <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd"><g transform="translate(-698.000000, -314.000000)" fill="#096DC3"><g transform="translate(0.000000, 165.000000)"><g transform="translate(657.000000, 20.000000)"><g><path d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z" transform="translate(49.744385, 136.372192) scale(1, -1) rotate(90.000000) translate(-49.744385, -136.372192) "></path></g></g></g></g></g></svg>
-            <span>Previous</span> 
-        </div>
-        <div class="storybook__nav storybook__nav--right">
-            <span>next</span> 
-            <svg width="18px" height="15px" viewBox="0 0 18 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="#096DC3" fill-rule="evenodd"><g transform="translate(-698.000000, -314.000000)" fill="#096DC3"><g transform="translate(0.000000, 165.000000)"><g transform="translate(657.000000, 20.000000)"><g><path d="M49,138 L49,128 L51,128 L51,138 L56.4887695,138 L49.7443848,144.744385 L43,138 L49,138 Z" transform="translate(49.744385, 136.372192) scale(1, -1) rotate(90.000000) translate(-49.744385, -136.372192) "></path></g></g></g></g></g></svg>
-        </div>
-    </nav>
 </div>

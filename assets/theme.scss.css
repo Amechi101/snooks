@@ -443,15 +443,14 @@ a, button, [role="button"], input, label, select, textarea {
 #main {
   height: calc(100vh - (96px + 100px)); }
 
+.storybook #main {
+  height: calc(100vh - (96px + 76px)); }
+
 .visually-hidden {
-  position: absolute !important;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  clip: rect(0 0 0 0); }
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  cursor: none; }
 
 @media (min-width: 768px) {
   .u-mobile-only {
@@ -570,6 +569,12 @@ a, button, [role="button"], input, label, select, textarea {
     .cols--m-gutter32 > .col + .col {
       margin-left: 32px; } }
 
+.context--white {
+  background-color: #FFFFFF; }
+
+.context--grey {
+  background-color: #F5F5F5; }
+
 .context--lavenderFog {
   background-color: #DCD3FF; }
 
@@ -625,38 +630,11 @@ a, button, [role="button"], input, label, select, textarea {
     color: #096DC3;
     font-size: 12px; }
 
-.storybook {
-  position: relative;
-  height: 100%;
-  display: flex;
+.form__stacked {
   flex-flow: column nowrap;
-  justify-content: center; }
-
-.storybook__main {
-  display: flex; }
-
-.storybook__controls {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  font-family: "basis-grotesque-regular";
-  font-size: 12px;
-  text-transform: uppercase; }
-  .storybook__controls .storybook__nav {
-    display: flex;
-    margin: 24px; }
-    .storybook__controls .storybook__nav--right svg {
-      position: relative;
-      margin-left: 12px;
-      -webkit-transform: rotate(180deg);
-      transform: rotate(180deg); }
-    .storybook__controls .storybook__nav--left svg {
-      position: relative;
-      margin-right: 12px; }
+  align-items: center; }
+  .form__stacked .form__field {
+    margin-top: 15px; }
 
 .container {
   margin: 0 auto; }
@@ -1848,6 +1826,24 @@ a, button, [role="button"], input, label, select, textarea {
     font-size: 14px;
     line-height: 20px; }
 
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  padding: 20px;
+  margin: 0 auto 10px;
+  cursor: pointer; }
+  .circle svg.download {
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    display: block;
+    fill: #096DC3; }
+  .circle--theme-white {
+    color: #096DC3;
+    background-color: #FFFFFF; }
+
 .select {
   position: relative; }
   .select::before {
@@ -1871,8 +1867,8 @@ a, button, [role="button"], input, label, select, textarea {
     font-family: "basis-grotesque-regular";
     background: transparent;
     border-radius: 0;
-    -webkit-appearance: button;
-    appearance: button;
+    -webkit-appearance: none;
+    appearance: none;
     cursor: pointer;
     width: 100%; }
 
@@ -2062,3 +2058,51 @@ a, button, [role="button"], input, label, select, textarea {
 #about .about-section:nth-child(even) .bg-right {
   color: #5258FA;
   background-color: #D4F4F1; }
+
+.storybook {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+  .storybook__main, .storybook__form, .storybook__sections {
+    width: 100%;
+    height: 100%; }
+  .storybook__sections {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center; }
+  .storybook__section {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease-in; }
+    .storybook__section#step4 {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%; }
+    .storybook__section.current {
+      opacity: 1; }
+  .storybook__controls {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    font-family: "basis-grotesque-regular";
+    font-size: 12px;
+    text-transform: uppercase; }
+    .storybook__controls-nav {
+      display: flex;
+      margin: 24px;
+      cursor: pointer; }
+      .storybook__controls-nav svg {
+        position: relative;
+        margin-left: 12px;
+        width: 30px;
+        height: 30px; }
+      .storybook__controls-nav--right svg {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg); }

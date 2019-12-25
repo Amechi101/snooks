@@ -3,6 +3,7 @@ import {TweenMax, Power3} from 'gsap';
 import Drawer from './components/drawer';
 import Gallery from './components/gallery';
 import Smoothscroll from './components/smoothscroll';
+import SliderUI from './components/slider';
 
 class App {
 	constructor() {
@@ -43,8 +44,14 @@ class App {
 	          			offsetTop: 32
 	        		}
 	      	});
-	  	});
-	}
+		  });
+		
+		// Slider
+		if(body.className === 'storybook') {
+			const grid = document.querySelector('.storybook');
+			new SliderUI(grid);
+		}
+	  }
 }
 
 domready(() => {

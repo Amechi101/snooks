@@ -18,7 +18,6 @@
 @import './components/_col.scss';
 @import './components/_context.scss';
 @import './components/_form.scss';
-@import './components/_storybook.scss';
 @import './components/_container.scss';
 @import './components/_drawer.scss';
 @import './components/_gallery.scss';
@@ -29,6 +28,7 @@
 @import './components/_logo.scss';
 @import './components/_nav.scss';
 @import './components/_subtitle.scss';
+@import './components/_circle.scss';
 @import './components/_select.scss';
 @import './components/_title.scss';
 @import './components/_textual.scss';
@@ -40,3 +40,4 @@
 // Pages
 // @import './pages/_home.scss';
 @import './pages/_about.scss';
+@import './pages/_storybook.scss';

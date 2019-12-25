@@ -19,19 +19,9 @@
         <nav class="header__nav header__nav--secondary nav--inline">
             <ul class="header__navList nav__list">
                 <li class="header__navListItem">
-                    <!-- @TODO: add link to account section -->
-                    <a class="link link--thick link--discrete" href="#" title="My Account">
-                        <span class="u-desktop-only">My Account</span>
-                        <span class="fonticon fonticon--profile fonticon--box u-mobile-only"></span>
-                    </a>
-                </li>
-                <li class="header__navListItem">
                     <a class="header__linkWithNotiflink link link--thick link--discrete" href="#" title="Shopping Bag">
-                        <span class="u-desktop-only">Shopping Bag (0)</span>
+                        <span class="u-desktop-only">Shopping Bag (<span class="shopping-bag__notif">0</span>)</span>
                         <span class="fonticon fonticon--shoppingBag fonticon--box u-mobile-only"></span>
-                        <!-- @TODO make notif for shopping bag having items on mobile & desktop 
-                            <span class="notif">{{ request.basket.num_lines }}</span>
-                        -->
                     </a>
                 </li>
             </ul>

@@ -56,3 +56,12 @@
         font-size: 12px;
     }
 }
+
+.form__stacked {
+    flex-flow: column nowrap;
+    align-items: center;
+
+    .form__field {
+        margin-top: 15px;
+    }
+}
