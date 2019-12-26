@@ -3,12 +3,13 @@
 		<label class="form__label">Upload Photo of Loved One</label> 
     </div>
     
-    <div class="form__field form__field--user-photo">
-        <input class="form__input" type="file" hidden>
-        <label class="form__label"> 
+    <div class="form__field">
+        <input accept=".png,.jpg" class="form__input inputfile" name="storybookUploadUserPhoto" id="storybookUploadUserPhoto" type="file" hidden>
+        <label for="storybookUploadUserPhoto" class="form__label"> 
             <figure class="circle circle--theme-white">
                 {% include 'svg-download.liquid' %}
             </figure>
+            <span class='storybook-step2--input-label' data-js-label></span>
         </label>
     </div>
 </div>

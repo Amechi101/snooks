@@ -26,7 +26,6 @@
   &--register  {
     @media #{$mq_m} {
       display: flex;
-      align-items: stretch;
       // flex-direction: column;
       justify-content: space-between;
     }

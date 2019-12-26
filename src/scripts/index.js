@@ -46,10 +46,55 @@ class App {
 	      	});
 		  });
 		
-		// Slider
 		if(body.className === 'storybook') {
+			// slider
 			const grid = document.querySelector('.storybook');
 			new SliderUI(grid);
+
+			// file input
+			const inputs = document.querySelectorAll( '.inputfile' );
+			
+			inputs.forEach( ( input ) => {
+				const label	 = input.nextElementSibling;
+				const labelVal = label.innerHTML;
+
+				input.addEventListener( 'change', ( e ) => {
+					{ let fileName = '';
+						if( this.files && this.files.length > 1 ) {
+							label.innerHTML = 'You can only upload 1 file.';
+						} else {
+							fileName = e.target.value.split( '\\' ).pop();
+						}
+
+						if( fileName ) {
+							label.querySelector( 'span' ).innerHTML = fileName;
+						} else {
+							label.innerHTML = labelVal;
+						}
+					}
+				});
+			});
+
+			// storybook activity
+			const storybookActivityContainer = document.getElementById("step5");
+
+			const textArea = storybookActivityContainer.querySelector('textarea');
+			const maxTextAttr = textArea.getAttribute('maxlength');		
+			const textAreaMessage = storybookActivityContainer.querySelector(".message");
+
+			textAreaMessage.innerHTML = `<span> ${maxTextAttr - textArea.value.length} </span> Characters Remaining`;
+				
+			textArea.addEventListener("keyup", (e) => {
+				const textLength = e.target.value.length;
+				const remText = maxTextAttr - textLength;
+					
+				textAreaMessage.innerHTML = `<span> ${remText} </span> Characters Remaining`;	
+			});
+			
+
+			
+			
+			
 		}
 	  }
 }

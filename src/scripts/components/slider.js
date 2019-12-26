@@ -5,11 +5,8 @@ export default class SliderUI {
 
 		//get slider controls
 		this.prevButton = this.sliderContainer.querySelector('#storybookPrev');
-		this.nextButton = this.sliderContainer.querySelector('#storybookNext');
-
-		//get slider tracker
-		this.trackerCurrentSlide = this.sliderContainer.querySelector('.ui-slider-numbers__current');
-		this.trackerTotalSlides = this.sliderContainer.querySelector('.ui-slider-numbers__total');
+        this.nextButton = this.sliderContainer.querySelector('#storybookNext');
+        this.prevStorybookPreviewButton = this.sliderContainer.querySelector('.storybookPrev');
 
 		//get all slides elements from DOM and convert to array
 		this.slides = Array.prototype.slice.call(document.querySelectorAll('.storybook__sections > .storybook__section'));
@@ -27,45 +24,37 @@ export default class SliderUI {
 	}
 
 	init() {
-
-		/*
-		 * default state of slider
-		 */
-		// this.trackerCurrentSlide.textContent = this.slideNum + 1;
-		// this.trackerTotalSlides.textContent = this.totalSlides;
-
 		//first slide shown
-		this.currentSlide = this.slides[this.slideNum];
+        this.currentSlide = this.slides[this.slideNum];
+        
+        if((this.slideNum + 1) === 7) {
+            document.querySelector('.storybook__controls').style.display = 'none';
+        } else {
+            document.querySelector('.storybook__controls').style.display = 'flex';
+        }
 
 		this.buttonState( this.slideNum );
 		
 		//apply "current" class to first slide
 		this.currentSlide.classList.add('current');
 
-		
-		/*
-		 * methods of slider
-		 */
 		this.bindMethods();
 		this.addEvents();
-
 	}
 
 	bindMethods() {
 		this.nextSlide = this.nextSlide.bind(this);
-		this.prevSlide = this.prevSlide.bind(this);
+        this.prevSlide = this.prevSlide.bind(this);
+        this.prevStorybookPreviewSlide = this.prevStorybookPreviewSlide.bind(this);
 	}
 
 	addEvents() {
 		this.nextButton.addEventListener('click', this.nextSlide, false);
-		this.prevButton.addEventListener('click', this.prevSlide, false);
+        this.prevButton.addEventListener('click', this.prevSlide, false);
+        this.prevStorybookPreviewButton.addEventListener('click', this.prevStorybookPreviewSlide, false);
 	}
 
 	updateSlide( currentSlideNum ) {
-
-		//slide tracker
-        // this.trackerCurrentSlide.textContent = currentSlideNum + 1;
-        console.log(currentSlideNum);
 
 		//current slide
 		this.currentSlide = this.slides[currentSlideNum];
@@ -74,7 +63,13 @@ export default class SliderUI {
 		this.currentSlide.classList.add('current');
 
 		//update button state based on slide position
-		this.buttonState( currentSlideNum );
+        this.buttonState( currentSlideNum );
+        
+        if((currentSlideNum + 1) === 7) {
+            document.querySelector('.storybook__controls').style.display = 'none';
+        } else {
+            document.querySelector('.storybook__controls').style.display = 'flex';
+        }
 	}
 
 	buttonState( slideIdx ) {
@@ -108,7 +103,20 @@ export default class SliderUI {
 		//call slide component to load the next slide...
 		this.updateSlide( this.slideNum );
 
-	}
+    }
+    
+    prevStorybookPreviewSlide( event ) {
+        event.preventDefault();
+
+		//remove class on current slide
+		this.currentSlide.classList.remove('current');
+
+		//decrement counter to move slide backwards
+		this.slideNum--;
+
+		//call slide component to load previous slide...
+		this.updateSlide( this.slideNum );
+    }
 
 	prevSlide( event ) {
 		event.preventDefault();

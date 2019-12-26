@@ -445,7 +445,7 @@ a, button, [role="button"], input, label, select, textarea {
   width: 100%;
   height: 100%; }
 
-.storybook #main {
+#storybook #main {
   height: 100vh; }
 
 .visually-hidden {
@@ -467,6 +467,15 @@ a, button, [role="button"], input, label, select, textarea {
 
 .u-underline {
   text-decoration: underline; }
+
+.fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%; }
 
 .faq .grid .grid__main, .terms .grid .grid__main, .privacy .grid .grid__main {
   color: #096DC3; }
@@ -589,7 +598,8 @@ a, button, [role="button"], input, label, select, textarea {
 .form__group {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between; }
+  justify-content: space-between;
+  padding: 0 20px; }
   @media (min-width: 768px) {
     .form__group {
       flex-flow: row wrap;
@@ -1722,7 +1732,6 @@ a, button, [role="button"], input, label, select, textarea {
 @media (min-width: 768px) {
   .connect__option--register {
     display: flex;
-    align-items: stretch;
     justify-content: space-between; } }
 
 .connect--page .connect__option {
@@ -2079,15 +2088,36 @@ a, button, [role="button"], input, label, select, textarea {
     flex-flow: column nowrap;
     align-items: center;
     opacity: 0;
+    visibility: hidden;
     background-color: #D4F4F1;
     color: #096DC3;
-    transition: opacity 0.3s ease-in; }
+    transition: opacity 0.3s ease-in, visibility 0.3s ease-in; }
+    .storybook__section.current {
+      opacity: 1;
+      z-index: 1;
+      visibility: visible; }
     .storybook__section#step4 {
       background-color: #FFFFFF;
       color: #096DC3; }
-    .storybook__section.current {
-      opacity: 1;
-      z-index: 1; }
+    .storybook__section#step7 {
+      justify-content: flex-start;
+      background-color: #FFFFFF;
+      overflow-y: scroll; }
+      .storybook__section#step7 .form__group {
+        padding: 0; }
+      .storybook__section#step7 .storybook-preview-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column nowrap;
+        text-align: center; }
+        .storybook__section#step7 .storybook-preview-block img {
+          width: 200px;
+          height: auto;
+          display: block;
+          margin: 0 auto; }
+        .storybook__section#step7 .storybook-preview-block .storybook-preview-block--submit {
+          margin: 30px 0; }
   .storybook__controls {
     display: flex;
     flex-flow: row nowrap;
@@ -2097,7 +2127,8 @@ a, button, [role="button"], input, label, select, textarea {
     justify-content: space-between;
     font-family: "basis-grotesque-regular";
     font-size: 12px;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    background-color: #FFDED5; }
     .storybook__controls-nav {
       display: flex;
       margin: 24px;

@@ -1,1 +1,23 @@
-<h1>Storybook Template Step (Step 5)</h1>
+<!-- @TODO: Change connect class to layout-1-grid -->
+<div class="connect connect--page fullscreen">
+	<div class="cols cols--m-2 cols--100vh">
+		<div class="col connect__option connect__option--register context--iceberg">
+			<div class="container">
+				<div class="connect__optionHeader">
+					<h1 class="title title--small title--caps">Edit Story Below</h1>
+				</div>
+                <textarea class="storybook__activity" name="storybookActivity" maxlength="3000" rows="10" cols="40">
+                    It was a dark and stormy night...
+                </textarea>
+                <div class="message"></div>
+			</div>
+		</div>
+		<div class="col context--white">
+			<div id="gallery" class="gallery">
+				<div class="gallery__slide">
+					<img class="gallery__imagery gallery__imagery--active" src="{{ 'activity-test.png' | asset_img_url: 'master' }}" />
+  				</div>
+			</div>
+		</div>
+	</div>
+</div>

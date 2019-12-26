@@ -14,19 +14,19 @@
     {% assign developmentMode = true %}
 
     {% if template.name == "index" %}
-        {% assign body_class = "home" %}
+        {% assign page_type = "home" %}
     {% elsif template.suffix == "about" %}
-        {% assign body_class = "about" %}
+        {% assign page_type = "about" %}
     {% elsif template.suffix == "faq" %}
-        {% assign body_class = "faq" %}
+        {% assign page_type = "faq" %}
     {% elsif template.suffix == "terms" %}
-        {% assign body_class = "terms" %}
+        {% assign page_type = "terms" %}
     {% elsif template.suffix == "privacy" %}
-        {% assign body_class = "privacy" %}
+        {% assign page_type = "privacy" %}
      {% elsif template.suffix == "product" %}
-        {% assign body_class = "product" %}
+        {% assign page_type = "product" %}
     {% elsif template.suffix == "storybook" %}
-        {% assign body_class = "storybook" %}
+        {% assign page_type = "storybook" %}
     {% endif %}
 
     {% include 'fonts' %}
@@ -39,7 +39,7 @@
         {{ content_for_header }}
     {% endif %}
 </head>
-<body class="{{ body_class }}">
+<body id="{{ page_type }}" class="{{ page_type }}">
     <div id="siteWrapper">
         {% section 'header' %}
 
@@ -59,8 +59,10 @@
                 </div>
             </nav>
         {% endif %}
-
-        {% section 'footer' %}
+        
+        {% if template.suffix != "storybook" %}
+            {% section 'footer' %}
+        {% endif %}
     </div>
 
     {{ 'theme.js' | asset_url | script_tag }}
